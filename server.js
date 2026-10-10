@@ -15,7 +15,11 @@ app.get('/nodemon', (req, res) => {
 });
 
 app.get('/views', (req, res) => {
-  res.render('home', { name: 'Ontha' });
-});
+  res.render('home', { username: 'Ontha', goal: 100000, sales: [
+    {amount: 'R2000', note: 'first client'},
+    {amount: 'R5000', note: 'logo Job'},
+    ] });
+    });
+
 
 app.listen(3000, () => console.log('Running on http://localhost:3000')); 

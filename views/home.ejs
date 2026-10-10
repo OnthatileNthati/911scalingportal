@@ -1,2 +1,15 @@
-<h1>Welcome, <%= name %></h1>
+<h1>Welcome, <%= username %></h1>
 <p>Goal progress will go here.</p>
+
+<% if (10000 >= goal) { %>
+  <p>Goal hit!</p>
+<% } else { %>
+  <p>Still going. Keep pushing.</p>
+<% } %>
+
+<p>Sales data:</p>
+
+<ul>
+  <% sales.forEach(function(sale) { %>
+    <li><%= sale.note %> <%= sale.amount %></li>
+  <% }); %>
