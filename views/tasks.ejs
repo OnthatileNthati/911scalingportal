@@ -1,0 +1,13 @@
+<h1>Welcome. View your tasks</h1>
+
+<ul>
+  <% tasks.forEach(function(task) { %>
+    <li><%= task.note %> (<%= task.task %>)</li>
+  <% }); %>
+</ul>
+
+<form method="POST" action="/tasks">
+     <input type="text" name="task" placeholder="Task" required>
+     <input type="text" name="note" placeholder="Note">
+     <button type="submit">Add task</button>
+   </form>
