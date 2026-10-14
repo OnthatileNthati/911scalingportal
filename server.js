@@ -1,4 +1,6 @@
 // 1. settings and middleware (BEFORE routes)
+const express = require('express');
+const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));              // serves /css, /js, /images
 app.use(express.urlencoded({ extended: true })); // reads form data
