@@ -6,10 +6,16 @@ app.use(express.static('public'));              // serves /css, /js, /images
 app.use(express.urlencoded({ extended: true })); // reads form data
 
 // 2. routes
-app.get('/login', (req, res) => res.render('login', { username: 'Ontha' }));
+app.get('/login', (req, res) => res.render('login'));
 app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
 
+app.get('/login.css', (req, res) => {
+  res.sendFile(__dirname + '/public/css/login.css');
+});
 
+app.get('/login.js', (req, res) => {
+  res.sendFile(__dirname + '/public/js/login.js');
+});
 
 
 // 3. start the server (LAST)
