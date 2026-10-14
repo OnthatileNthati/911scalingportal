@@ -9,9 +9,7 @@ app.use(express.urlencoded({ extended: true })); // reads form data
 app.get('/login', (req, res) => res.render('login'));
 app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
 
-app.get('/login.css', (req, res) => {
-  res.sendFile(__dirname + '/public/css/login.css');
-});
+
 
 
 // 3. start the server (LAST)
