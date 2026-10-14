@@ -6,7 +6,7 @@ app.use(express.static('public'));              // serves /css, /js, /images
 app.use(express.urlencoded({ extended: true })); // reads form data
 
 // 2. routes
-app.get('/login', (req, res) => res.render('login'));
+app.get('/login', (req, res) => res.render('login', { username: 'Ontha' }));
 app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
 
 
