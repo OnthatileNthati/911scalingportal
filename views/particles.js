@@ -1,0 +1,113 @@
+(() => {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particleCanvas';
+    canvas.login.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    `;
+ 
+    const left = document.getElementById('left');
+    left.style.position = 'relative';
+    left.style.overflow = 'hidden';
+    left.insertBefore(canvas, left.firstChild);
+ 
+    // Make hero content sit above canvas
+    left.querySelectorAll('h1, p, .btn').forEach(el => {
+        el.style.position = 'relative';
+        el.style.zIndex = '1';
+    });
+ 
+    const ctx = canvas.getContext('2d');
+ 
+    function resizeCanvas() {
+        canvas.width = left.offsetWidth;
+        canvas.height = left.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+ 
+    const PARTICLE_COUNT = 80;
+    const particles = [];
+ 
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+ 
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2.5 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.4;
+            this.speedY = (Math.random() - 0.5) * 0.4;
+            this.opacity = Math.random() * 0.6 + 0.2;
+            this.pulse = Math.random() * Math.PI * 2;
+            this.pulseSpeed = Math.random() * 0.02 + 0.005;
+        }
+ 
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.pulse += this.pulseSpeed;
+ 
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+        }
+ 
+        draw() {
+            const currentOpacity = this.opacity * (0.7 + 0.3 * Math.sin(this.pulse));
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 107, 0, ${currentOpacity})`;
+            ctx.fill();
+ 
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 107, 0, ${currentOpacity * 0.15})`;
+            ctx.fill();
+        }
+    }
+ 
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+ 
+                if (dist < 120) {
+                    const opacity = (1 - dist / 120) * 0.12;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(255, 107, 0, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+ 
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(new Particle());
+    }
+ 
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawConnections();
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+ 
+    animate();
+})();
