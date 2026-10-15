@@ -13,6 +13,7 @@
   <% sales.forEach(function(sale) { %>
     <li><%= sale.note %> R<%= sale.amount %></li>
   <% }); %>
+</ul>
 
      <form method="POST" action="/sales">
      <input type="number" name="amount" placeholder="Amount" required>
