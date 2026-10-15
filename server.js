@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true })); // reads form data
 app.get('/login', (req, res) => res.render('login'));
 app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
 
-app.get("/homepage", (req, res) => res.render('homepage', { username: "Test User", goal: "5000", sales: "2500" }));
+app.get("/home", (req, res) => res.render('home', { username: "Test User", goal: "5000", sales: "2500" }));
 
 // 3. start the server (LAST)
 app.listen(3000, () => console.log('Running on http://localhost:3000'));
