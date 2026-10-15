@@ -24,3 +24,4 @@ loginForm.addEventListener("submit", async (event) => {
     alert("Unable to sign in. Please try again.");
   }
 });
+});
