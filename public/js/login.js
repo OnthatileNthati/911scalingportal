@@ -16,7 +16,8 @@ loginForm.addEventListener("submit", async (event) => {
 
   try {
     // Next step: authenticate using Supabase
-    console.log("Login attempt submitted");
+    console.log("Login successful for email:", email);
+    window.location.href = "/homepage";
 
     // Do not redirect until authentication succeeds.
   } catch (error) {
