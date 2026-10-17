@@ -233,7 +233,7 @@ button.saleslog {
 
 /* MOBILE */
 /* MOBILE RESPONSIVENESS */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
   .dashboard {
     display: flex;
@@ -332,7 +332,7 @@ button.saleslog {
   }
 
   .logo {
-    font-size: 50px;
+    font-size: 24px;
     align-self: center;
     margin-bottom: 20px;
   }
