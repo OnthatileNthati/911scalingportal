@@ -17,5 +17,7 @@ app.get("/dashboard", (req, res) => {
     sales: [] // empty for now
   });
 });
+
+
 // 3. start the server (LAST)
 app.listen(3000, () => console.log('Running on http://localhost:3000'));

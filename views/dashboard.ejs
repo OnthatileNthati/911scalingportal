@@ -1,23 +1,95 @@
-<h1>Welcome, <%= username %></h1>
-<p>Goal progress will go here.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>911 Scaling | Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
 
-<% if (10000 >= goal) { %>
-  <p>Goal hit!</p>
-<% } else { %>
-  <p>Still going. Keep pushing.</p>
-<% } %>
+<div class="dashboard">
 
-<p>Sales data:</p>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">911 Scaling.</h2>
 
-<ul>
-  <% sales.forEach(function(sale) { %>
-    <li><%= sale.note %> R<%= sale.amount %></li>
-  <% }); %>
-</ul>
+    <nav class="nav-menu">
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Calendar</a>
+      <a href="#">My Tasks</a>
+      <a href="#">Statistics</a>
+      <a href="#">Documents</a>
+    </nav>
 
-     <form method="POST" action="/sales">
-     <input type="number" name="amount" placeholder="Amount" required>
-     <input type="text" name="note" placeholder="Note">
-     <button type="submit">Add sale</button>
-   </form>
+    <div class="sidebar-bottom">
+      <a href="#">Settings</a>
+    </div>
+  </aside>
 
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Welcome, <span><%= username %></span></h1>
+
+      <div class="header-actions">
+        <button class="create-btn">+ Create</button>
+        <button class="icon-btn" aria-label="Notifications">♧</button>
+        <div class="profile-icon"></div>
+      </div>
+    </header>
+
+    <!-- SALES DASHBOARD -->
+    <section class="sales-panel">
+
+      <div class="sales-header">
+        <h2>Sales Progress</h2>
+        <button class="add-sale">+ Add Sale</button>
+      </div>
+
+      <!-- EMPTY CHART CONTAINER -->
+      <div class="sales-chart"></div>
+
+      <!-- THREE SHORTCUT BOXES -->
+      <div class="shortcut-grid">
+
+        <a href="#" class="shortcut-card calendar-card">
+          <div class="shortcut-content"></div>
+          <span>Calendar</span>
+        </a>
+
+        <a href="#" class="shortcut-card announcement-card">
+          <div class="shortcut-content"></div>
+          <span>Announcements</span>
+        </a>
+
+        <a href="#" class="shortcut-card task-card">
+          <div class="shortcut-content"></div>
+          <span>Add Task</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ADDITIONAL DASHBOARD SECTIONS -->
+    <section class="bottom-grid">
+
+      <div class="bottom-card">
+        <h3>Overall Information</h3>
+        <div class="empty-content"></div>
+      </div>
+
+      <div class="bottom-card">
+        <h3>Monthly Progress</h3>
+        <div class="empty-content"></div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
