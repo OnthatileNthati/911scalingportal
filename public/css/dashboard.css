@@ -91,6 +91,11 @@ button {
   font-family: inherit;
 }
 
+button.saleslog {
+  cursor: pointer;
+  font-family: inherit;
+}
+
 .create-btn {
   background: #222;
   color: #fff;
@@ -295,6 +300,41 @@ button {
     flex-direction: column;
     gap: 8px;
     overflow-x: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .sidebar nav{
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    bottom: 10px;
+  }
+
+  .nav-menu{
+    flex-direction: row;
+    border-bottom: 24px;
+  
+  }
+
+  .nav-menu a,
+  .sidebar-bottom a {
+    padding: 8px;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .header h1 {
+    font-size: 35px;
+  }
+
+  .logo {
+    font-size: 50px;
+    align-self: center;
+    margin-bottom: 20px;
   }
 
 }
