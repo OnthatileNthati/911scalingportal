@@ -1,4 +1,6 @@
 // 1. settings and middleware (BEFORE routes)
+app.get('/', (req, res) => res.redirect('/login'));
+
 const { render } = require('ejs');
 const express = require('express');
 const app = express();
@@ -8,7 +10,7 @@ app.use(express.urlencoded({ extended: true })); // reads form data
 
 // 2. routes
 app.get('/login', (req, res) => res.render('login'));
-app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
+app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'bontle' }));
 
 app.get("/dashboard", (req, res) => {
   res.render("dashboard", {

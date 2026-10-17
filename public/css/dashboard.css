@@ -227,58 +227,74 @@ button {
 }
 
 /* MOBILE */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 700px) {
+
   .dashboard {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 12px;
   }
 
-  .sidebar {
-    padding: 20px;
+  .main-content {
+    width: 100%;
+    min-width: 0;
   }
 
-  .logo {
-    margin-bottom: 20px;
-  }
-
-  .nav-menu {
-    flex-direction: row;
-    overflow-x: auto;
-  }
-
-  .nav-menu a {
-    white-space: nowrap;
-  }
-
-  .sidebar-bottom {
-    display: none;
-  }
-
-  .header {
-    flex-wrap: wrap;
-  }
-
-  .header h1 {
-    font-size: 24px;
-  }
-
-  .sales-header h2 {
-    font-size: 22px;
+  .sales-panel {
+    width: 100%;
+    padding: 16px;
   }
 
   .sales-chart {
-    min-height: 230px;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 20px;
   }
 
+  /* KEEP THE THREE BOXES SIDE BY SIDE */
   .shortcut-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .shortcut-card {
+    min-width: 0;
+    width: 100%;
   }
 
   .shortcut-content {
-    min-height: 150px;
+    width: 100%;
+    min-height: 110px;
   }
 
-  .bottom-grid {
-    grid-template-columns: 1fr;
+  .shortcut-card span {
+    font-size: 11px;
+    overflow-wrap: anywhere;
   }
+
+  /* BOTTOM SECTIONS */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .bottom-card {
+    min-width: 0;
+    padding: 12px;
+  }
+
+  .bottom-card h3 {
+    font-size: 14px;
+  }
+
+  .nav-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
 }
