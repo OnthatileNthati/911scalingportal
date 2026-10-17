@@ -60,3 +60,13 @@ body {
   border:none; cursor:pointer; transition:0.2s;
 }
 .sign-in:hover { transform:scale(1.05); background:blue; }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+  .left { display:none; }
+  .right { flex:1; margin:0; border-radius:0; padding:24px; }
+  .form-content h1 { font-size:32px; margin-top:50px; }
+  .sign-in { width:64px; height:64px; font-size:8px; }
+}
+
