@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true })); // reads form data
 app.get('/login', (req, res) => res.render('login'));
 app.get('/dashboard', (req, res) => res.render('dashboard', { username: 'Ontha' }));
 
-app.get("/home", (req, res) => {
-  res.render("home", {
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard", {
     username: "Test User",
     goal: 5000,
     sales: [] // empty for now
