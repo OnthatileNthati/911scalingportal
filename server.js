@@ -15,14 +15,6 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => res.render('login'));
 
-// FIX 2: only ONE dashboard route
-app.get('/dashboard', (req, res) => {
-  res.render('dashboard', {
-    username: "Test User",
-    goal: 5000,
-    sales: [] // empty for now
-  });
-});
 
 // 3. start the server (LAST)
 app.listen(3000, () => console.log('Running on http://localhost:3000'));
